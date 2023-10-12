@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Viewer</title>
+</head>
+<body>
+    <h1>Sensor Data</h1>
+    <pre id="data-output"></pre>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:3000'); // Change the URL if your server is on a different address or port
+        socket.on('connect', () => {
+            console.log('Connected to server');
+        });
+        socket.on('dataz', (data) => {
+            console.log(data);
+            const output = document.getElementById('data-output');
+            output.textContent += data + '\n\n';
+        });
+    </script>
+</body>
+</html>
