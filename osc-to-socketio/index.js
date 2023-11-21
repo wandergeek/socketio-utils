@@ -36,7 +36,7 @@ var getIPAddresses = function () {
 var udpPort = new osc.UDPPort({
   localAddress: "0.0.0.0",
   localPort: 8000,
-  multicastMembership: ["239.1.1.1"]
+  multicastMembership: ["239.255.0.1"]
 });
 
 udpPort.on("ready", function () {
