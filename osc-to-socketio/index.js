@@ -49,7 +49,10 @@ udpPort.on("ready", function () {
 });
 
 udpPort.on("message", function (oscMessage) {
-  // console.log(oscMessage);
+  if (process.env.DEBUG) {
+    console.log(oscMessage);
+  }
+  
   io.sockets.emit('dataz', oscMessage.args[0]);
 });
 

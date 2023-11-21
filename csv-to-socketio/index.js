@@ -15,8 +15,6 @@ httpServer.listen(httpPort, "0.0.0.0", () => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 let dataQueue = [];
 
 fs.createReadStream('public/data-60fps.csv')
